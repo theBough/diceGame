@@ -1,5 +1,5 @@
-let dieOne;
-let dieTwo;
+let dieOne = 0;
+let dieTwo = 0;
 let sum;
 let target;
 let risk;
@@ -53,21 +53,32 @@ function inputBoxes(){
   target = createInput();
   target.position(200, 60);
   target.size(30);
+  target.value(0);
   risk = createInput();
   risk.position(200, 110);
   risk.size(30);
+  risk.value(0);
 }
 function playerRolled(){
   let m = risk.value();
   money = money - m;
-  
   let g = target.value();
-  
   dieOne = Math.floor(Math.random() * 6 + 1);
   dieTwo = Math.floor(Math.random() * 6 + 1);
   sum = dieOne+dieTwo;
+  if(sum == g){
+    if(g == 2 || g== 12){
+      money = money + (m*36);
+    }else if(g==3 || g == 11){
+      money = money + (m*18);
+    }else if(g==4 || g == 10){
+      money = money + (m*12);
+    }else if(g==5 || g == 9){
+      money = money + (m*9);
+    }else if(g==6 || g == 8){
+      money = money + (m*(5/36));
+    }else if(g==7){
+      money = money + (m*6);
+    }
+  }
 }
-
-
-
-
