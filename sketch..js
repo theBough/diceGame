@@ -35,13 +35,13 @@ function design() {
   rect(75, 110, 55, 55, 20);
   textSize(17);
   fill(226, 135, 67);
-  text("Pick your number?", 10, 200);
-  text("Risk?", 10, 300);
+  text("Pick your number?", 200, 50);
+  text("Risk?", 200, 100);
   target = createInput();
-  target.position(10, 220);
+  target.position(200, 60);
   target.size(30);
   risk = createInput();
-  risk.position(10, 320);
+  risk.position(200, 110);
   risk.size(30);
   //text("The Sum is: " + sum, 50,100) ;
 }
