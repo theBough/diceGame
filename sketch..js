@@ -13,6 +13,13 @@ function draw() {
   textSize(50);
   text(dieOne, 50,50)
   text(dieTwo, 100,50)
-  text("The Sum is: " + sum, 50,100)
-  
+  if(keyIsDown(13)){
+    dieOne = Math.floor(Math.random()*6 +1 );
+    dieTwo = Math.floor(Math.random()*6 +1 );
+  }else{
+    sum = dieOne + dieTwo;
+  }
+    
+  text("The Sum is: " + sum, 50,100) ;
 }
+
