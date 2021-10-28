@@ -4,12 +4,14 @@ let sum;
 let target;
 let risk;
 let money;
+let button;
 
 function setup() {
   createCanvas(400, 400);
   textFont("Verdana")
   money = 50;
   design();
+  inputBoxes();
 }
 
 function draw() {
@@ -37,11 +39,27 @@ function design() {
   fill(226, 135, 67);
   text("Pick your number?", 200, 50);
   text("Risk?", 200, 100);
+  button = createButton("ROLL");
+  button.position(10,200);
+  button.size(200,150);
+  button.style('font-size','30px');
+  let col = color(135,62,35)
+  button.style('background-color',col)
+  button.mousePressed(playerRolled)
+  
+}
+function inputBoxes(){
   target = createInput();
   target.position(200, 60);
   target.size(30);
   risk = createInput();
   risk.position(200, 110);
   risk.size(30);
-  //text("The Sum is: " + sum, 50,100) ;
 }
+function playerRolled(){
+  money = money -risk;
+}
+
+
+
+
