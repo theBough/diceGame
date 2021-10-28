@@ -7,7 +7,7 @@ let money;
 
 function setup() {
   createCanvas(400, 400);
-  loadFont('spaceFont.ttf');
+  textFont("Verdana")
   money = 50;
   design();
 }
@@ -23,7 +23,6 @@ function draw() {
   }
 }
 function design() {
-  loadFont('spaceFont.ttf');
   stroke(226,135,67);
   strokeWeight(1);
   fill(226, 135, 67);
@@ -36,8 +35,8 @@ function design() {
   rect(75, 110, 55, 55, 20);
   textSize(17);
   fill(226, 135, 67);
-  text("What Number are you trying to roll?", 10, 200);
-  text("How much do you wanna risk?", 10, 300);
+  text("Pick your number?", 10, 200);
+  text("Risk?", 10, 300);
   target = createInput();
   target.position(10, 220);
   target.size(30);
