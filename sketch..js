@@ -5,11 +5,13 @@ let target;
 let risk;
 let money;
 let button;
+let winOrLose;
 
 function setup() {
   createCanvas(400, 400);
   textFont("Verdana")
   money = 50;
+  winOrLose = "Click Roll when Ready"
   design();
   inputBoxes();
 }
@@ -40,9 +42,10 @@ function design() {
   textSize(17);
   text("Pick your number?", 200, 50);
   text("Risk?", 200, 100);
+  text(winOrLose,200,225)
   button = createButton("ROLL");
   button.position(10,200);
-  button.size(200,150);
+  button.size(190,150);
   button.style('font-size','30px');
   let col = color(135,62,35)
   button.style('background-color',col)
@@ -61,12 +64,17 @@ function inputBoxes(){
 }
 function playerRolled(){
   let m = risk.value();
+  if(m > money){
+    winOrLose = "You don't have enough!"
+    return 0;
+  }
   money = money - m;
   let g = target.value();
   dieOne = Math.floor(Math.random() * 6 + 1);
   dieTwo = Math.floor(Math.random() * 6 + 1);
   sum = dieOne+dieTwo;
   if(sum == g){
+    winOrLose = "Winner!"
     if(g == 2 || g== 12){
       money = money + (m*36);
     }else if(g==3 || g == 11){
@@ -80,5 +88,7 @@ function playerRolled(){
     }else if(g==7){
       money = money + (m*6);
     }
+  }else{
+    winOrLose = "Loser"
   }
 }
