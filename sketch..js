@@ -57,7 +57,8 @@ function inputBoxes(){
   risk.size(30);
 }
 function playerRolled(){
-  money = money -risk;
+  let m = risk.value();
+  money = money - m;
 }
 
 
